@@ -1,0 +1,37 @@
+name: Proton CI
+
+on:
+  push:
+    branches: [ "proton_8.0" ]
+  pull_request:
+    branches: [ "proton_8.0" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with: 
+        fetch-depth: 0
+        submodules: true 
+        
+    - name: Build_MK 
+      run: mkdir ../Build && cd ../Build 
+    
+    - name: configure
+      run: | 
+        # ./configure  
+        ../Proton/configure.sh --build-name=Build --enable-ccache #--container-engine=docker
+      
+    - name: make
+      run: make
+      
+    - name: make check
+      run: | 
+        # make check
+      
+    - name: make distcheck
+      run: | 
+        # make distcheck
