@@ -26,7 +26,7 @@ jobs:
     - name: configure
       run: | 
         # ./configure  
-        ../Proton/configure.sh --build-name=Build --enable-ccache #--container-engine=docker
+        ../Proton/configure.sh --build-name=Build --enable-ccache # -no-proton-sdk #--container-engine=docker
       
     - name: make
       run: make
