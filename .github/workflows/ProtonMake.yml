@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04 # latest
 
     steps:   
     - name: Dependency 
@@ -26,7 +26,7 @@ jobs:
     - name: configure
       run: | 
         # ./configure  
-        ../Proton/configure.sh --build-name=Build --enable-ccache # -no-proton-sdk #--container-engine=docker
+        ../Proton/configure.sh --build-name=Build --enable-ccache -no-proton-sdk #--container-engine=docker
       
     - name: make
       run: make
